@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: black;
+}
+
+.container {
+    position: relative;
+    width: 600px;
+    height: 400px;
+    border: 4px solid white;
+}
+
+.box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.box:first-child {
+    background-image: url(img/bg_1.jpg);
+    background-size: cover;
+}
+
+.box:last-child {
+    background-image: url(img/bg_3.jpg);
+    background-size: cover;
+    z-index: 2;
+    transition: .5s;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0% 100%);
+}
+
+.box:last-child:hover {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.box:first-child:hover~.box:last-child {
+    clip-path: polygon(0 0, 100% 0, 100% 0%, 0% 0%);
+}
